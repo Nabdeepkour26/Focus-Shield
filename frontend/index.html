@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus Shield - Stay Focused, Boost Productivity</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="side-nav">
+        <div class="dot active" data-target="home" title="Home"></div>
+        <div class="dot" data-target="features" title="Features"></div>
+        <div class="dot" data-target="progress-chart" title="Analytics"></div>
+        <div class="dot" data-target="tracker" title="Dashboard"></div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top glass-nav">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#home"><i class="fas fa-shield-halved text-cyan"></i> Focus <span
+                    class="text-cyan">Shield</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tracker">Tracker</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <button class="btn btn-outline-cyan btn-sm rounded-circle" data-bs-toggle="modal"
+                            data-bs-target="#settingsModal">
+                            <i class="fas fa-gear"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero py-5 min-vh-100 d-flex align-items-center reveal active">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7 text-start">
+                    <div class="status-tracker mb-4">
+                        <span class="status-dot"></span>
+                        <span>System: Neural Focus Optimization Active</span>
+                    </div>
+                    <h1 class="display-1 fw-bold mb-4 tracking-tight">Focus. Study. <span class="text-gradient">Succeed.</span></h1>
+                    <p class="lead fs-4 mb-5 max-w-700 text-dim">Focus Shield was built by a student, for students. Defend your flow state during deep-study sessions with gamified discipline.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#features" class="btn btn-primary btn-lg px-5">Enter Flow State</a>
+                        <a href="#tracker" class="btn btn-outline-custom btn-lg px-5">View Analytics</a>
+                    </div>
+                </div>
+                <div class="col-lg-5 d-none d-lg-block">
+                    <div class="mascot-container p-4">
+                        <img src="images/guardian.png" alt="Focus Guardian" class="img-fluid rounded-pill shadow-lg border border-primary border-opacity-25" style="backdrop-filter: blur(10px);">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="py-5 reveal">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold">Powerful Features</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100 border-0 shadow">
+                        <div class="card-body text-center p-4">
+                            <h5 class="card-title fw-bold text-gradient mb-3">Focus Timer</h5>
+                            <p class="card-text text-muted mb-4">Set customizable timers to maintain focus during work
+                                sessions. Start, pause, and reset with ease.</p>
+                            <div class="timer-container-outer mb-4">
+                                <div id="timer-display" class="timer-glow">00:00:00</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="timer-label" class="form-label fw-bold">Session Name:</label>
+                                <input type="text" id="timer-label" class="form-control mb-3"
+                                    placeholder="e.g., Deep Work, Coding, Reading">
+
+                                <label class="form-label fw-bold">Set Duration:</label>
+                                <div class="row g-2 mb-3">
+                                    <div class="col-4">
+                                        <label for="timer-hours" class="small fw-bold">Hours</label>
+                                        <input type="number" id="timer-hours" class="form-control" min="0" value="0">
+                                    </div>
+                                    <div class="col-4">
+                                        <label for="timer-minutes" class="small fw-bold">Minutes</label>
+                                        <input type="number" id="timer-minutes" class="form-control" min="0" value="25">
+                                    </div>
+                                    <div class="col-4">
+                                        <label for="timer-seconds" class="small fw-bold">Seconds</label>
+                                        <input type="number" id="timer-seconds" class="form-control" min="0" value="0">
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 d-flex flex-wrap justify-content-center gap-2">
+                                    <button class="btn btn-sm btn-outline-secondary preset-btn" data-h="0" data-m="25"
+                                        data-s="0">25m (Pomodoro)</button>
+                                    <button class="btn btn-sm btn-outline-secondary preset-btn" data-h="0" data-m="50"
+                                        data-s="0">50m (Deep Work)</button>
+                                    <button class="btn btn-sm btn-outline-secondary preset-btn" data-h="0" data-m="15"
+                                        data-s="0">15m (Break)</button>
+                                    <button class="btn btn-sm btn-outline-secondary preset-btn" data-h="1" data-m="0"
+                                        data-s="0">1h (Standard)</button>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="timer-theme" class="form-label fw-bold">Theme Color:</label>
+                                    <input type="color" id="timer-theme" class="form-control form-control-color w-100"
+                                        value="#0d6efd" title="Choose your theme color">
+                                </div>
+                                <button id="set-timer-btn" class="btn btn-outline-primary w-100 mb-3">Set Custom
+                                    Timer</button>
+                            </div>
+                            <button id="start-btn" class="btn btn-primary me-2">Start</button>
+                            <button id="pause-btn" class="btn btn-secondary me-2">Pause</button>
+                            <button id="reset-btn" class="btn btn-outline-primary me-2">Reset</button>
+                            <button id="pomodoro-btn" class="btn btn-warning me-2">Pomodoro Mode</button>
+                            <button id="break-mode-btn" class="btn btn-outline-success mt-2"><i
+                                    class="fas fa-coffee"></i> Break Mode</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100 border-0 shadow">
+                        <div class="card-body text-center p-4">
+                            <i class="fas fa-ban fa-4x text-danger mb-3"></i>
+                            <h5 class="card-title fw-bold">Distraction Blocker</h5>
+                            <p class="card-text">Add websites to your blocklist to prevent access during focus time.
+                                Build discipline automatically.</p>
+                            <div class="distraction-blocker-section p-4 mb-3">
+                                <div class="d-flex align-items-center gap-3 mb-4">
+                                    <div class="icon-box-danger">
+                                        <i class="fas fa-shield-slash"></i>
+                                    </div>
+                                    <div class="text-start">
+                                        <h6 class="text-danger fw-bold mb-0">Active Blocklist</h6>
+                                        <small class="text-dim">Sites restricted during focus</small>
+                                    </div>
+                                </div>
+                                <ul id="blocked-sites" class="list-unstyled mb-4 text-start"
+                                    style="max-height: 200px; overflow-y: auto;">
+                                    <!-- Dynamic list items -->
+                                </ul>
+                                <div class="input-group glass-input-group">
+                                    <input type="text" id="new-site" class="form-control bg-transparent"
+                                        placeholder="Add domain to block...">
+                                    <button id="add-site-btn" class="btn btn-danger">
+                                        <i class="fas fa-plus me-2"></i> Block
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="progress-chart" class="py-5 reveal">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold">Progress Analytics</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="card border-0 shadow">
+                        <div class="card-body p-4">
+                            <h5 class="card-title fw-bold text-center mb-4">
+                                <i class="fas fa-chart-bar text-primary me-2"></i>Focus vs Distraction Time
+                            </h5>
+                            <div class="chart-container mb-4">
+                                <canvas id="progressChart" width="400" height="200"></canvas>
+                            </div>
+                            <div class="row text-center">
+                                <div class="col-md-4">
+                                    <div class="p-3 rounded border border-success border-opacity-10">
+                                        <h6 class="text-success fw-bold">Focused Time</h6>
+                                        <span id="chart-focused-time" class="h4 text-success">0m</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="p-3 rounded border border-danger border-opacity-10">
+                                        <h6 class="text-danger fw-bold">Distracted Time</h6>
+                                        <span id="chart-distracted-time" class="h4 text-danger">0m</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="p-3 rounded border border-info border-opacity-10">
+                                        <h6 class="text-info fw-bold">Efficiency</h6>
+                                        <span id="chart-efficiency" class="h4 text-info">0%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tracker" class="py-5 reveal">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold">Your Work Tracker</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="card border-0 shadow">
+                        <div class="card-body text-center">
+                            <i class="fas fa-chart-line fa-3x text-success mb-3"></i>
+                            <div class="d-flex justify-content-between align-items-end mb-2">
+                                <h5 class="card-title fw-bold mb-0">Daily Goal</h5>
+                                <span id="level-badge" class="badge bg-indigo rounded-pill">Rank: Novice</span>
+                            </div>
+                            <div class="progress mb-4"
+                                style="height: 12px; background: rgba(0,0,0,0.2); border-radius: 6px;">
+                                <div class="progress-bar bg-success" id="daily-progress"
+                                    style="width: 0%; border-radius: 6px;"></div>
+                            </div>
+                            <div class="mb-4">
+                                <label for="daily-goal-input" class="small fw-bold text-dim mb-2 d-block">Set Daily
+                                    Focus Goal (hours)</label>
+                                <div class="input-group">
+                                    <input type="number" id="daily-goal-input" class="form-control" min="1" value="4">
+                                    <button id="set-daily-goal-btn" class="btn btn-success px-4">Update</button>
+                                </div>
+                            </div>
+                            <p id="streak-display" class="fw-bold text-warning fs-5">🔥 0 Day Streak</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card border-0 shadow">
+                        <div class="card-body text-center">
+                            <i class="fas fa-trophy fa-3x text-warning mb-3"></i>
+                            <h5 class="card-title fw-bold">Achievements & Penalties</h5>
+                            <div id="achievements-list" class="mb-3">
+                                <span class="badge bg-secondary">No achievements yet</span>
+                            </div>
+                            <div id="penalty-alert" class="alert alert-danger d-none">
+                                ⚠️ Penalty Applied! Stay focused!
+                            </div>
+                            <p class="text-muted small">Complete sessions and avoid distractions to earn achievements!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <div class="alert alert-info">
+                    <strong>💡 Tip:</strong> Switching tabs or minimizing the window counts as distraction and applies
+                    penalties. Stay focused to maximize your progress!
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-dark text-white py-5">
+        <div class="container text-center">
+            <h5 class="fw-bold">Focus Shield</h5>
+            <p class="text-muted">Empowering productivity through intelligent discipline systems.</p>
+            <div class="mb-4">
+                <a href="#" class="text-white me-3 fs-4"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-white me-3 fs-4"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="text-white me-3 fs-4"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-white fs-4"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <hr class="my-4 border-secondary opacity-25">
+            <p class="mb-0 small text-muted">&copy; 2026 Focus Shield. All rights reserved. Built for productivity.</p>
+        </div>
+    </footer>
+
+    <!-- Settings Modal -->
+    <div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="settingsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content glass-card-modal">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold text-gradient" id="settingsModalLabel">Theme Settings</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="mb-4">
+                        <label class="form-label d-block mb-3">Theme Mode</label>
+                        <div class="btn-group w-100" role="group">
+                            <input type="radio" class="btn-check" name="theme-mode" id="mode-dark" checked>
+                            <label class="btn btn-outline-primary" for="mode-dark"><i class="fas fa-moon"></i> Midnight</label>
+
+                            <input type="radio" class="btn-check" name="theme-mode" id="mode-light">
+                            <label class="btn btn-outline-primary" for="mode-light"><i class="fas fa-sun"></i> Arctic</label>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <label for="accent-color-picker" class="form-label mb-3">Custom Accent Color</label>
+                        <input type="color" class="form-control form-control-color w-100" id="accent-color-picker" value="#22d3ee">
+                    </div>
+                    <div class="mb-4 d-flex align-items-center justify-content-between p-3 glass-card rounded-4 border-glass">
+                        <div class="d-flex align-items-center gap-3">
+                            <i class="fas fa-volume-up text-cyan fs-5"></i>
+                            <div>
+                                <h6 class="mb-0 fw-bold">Sound Effects</h6>
+                                <small class="text-muted">Buzz on completions & distractions</small>
+                            </div>
+                        </div>
+                        <div class="form-check form-switch p-0 m-0">
+                            <input class="form-check-input ms-0" type="checkbox" id="sound-effects-toggle" checked style="width: 2.5rem; height: 1.25rem; cursor: pointer;">
+                        </div>
+                    </div>
+                    <div class="mb-0">
+                        <label class="form-label mb-3">Theme Presets</label>
+                        <div class="row g-2">
+                            <div class="col-6">
+                                <button class="btn btn-outline-secondary w-100 theme-preset-btn" data-primary="#22d3ee" data-secondary="#818cf8">Cyber Blue</button>
+                            </div>
+                            <div class="col-6">
+                                <button class="btn btn-outline-secondary w-100 theme-preset-btn" data-primary="#f472b6" data-secondary="#ec4899">Neon Rose</button>
+                            </div>
+                            <div class="col-6">
+                                <button class="btn btn-outline-secondary w-100 theme-preset-btn" data-primary="#34d399" data-secondary="#10b981">Emeral Focus</button>
+                            </div>
+                            <div class="col-6">
+                                <button class="btn btn-outline-secondary w-100 theme-preset-btn" data-primary="#fb923c" data-secondary="#f97316">Desert Sunset</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-primary w-100" data-bs-dismiss="modal">Apply & Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
